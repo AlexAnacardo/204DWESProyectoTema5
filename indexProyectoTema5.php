@@ -29,20 +29,20 @@
                     <tr>
                         <td>0</td>
                         <td>Mostrar el contenido de las variables superglobales y phpinfo()</td>
-                        <td><a href="codigoPHP/ejercicio01PDO.php"><image src="webroot/images/play.png" heigth="25%" width="25%"/></a></td>
-                        <td><a href="mostrarcodigo/muestraEjercicio01PDO.php"><image src="webroot/images/ojo.png" heigth="30%" width="30%"/></a></td>
+                        <td><a href="codigoPHP/ejercicio00.php"><image src="webroot/images/play.png" heigth="25%" width="25%"/></a></td>
+                        <td><a href="mostrarcodigo/muestraEjercicio00.php"><image src="webroot/images/ojo.png" heigth="30%" width="30%"/></a></td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Desarrollo de un control de acceso con identificación del usuario basado en la función header()</td>
-                        <td><a href="codigoPHP/ejercicio02PDO.php"><image src="webroot/images/play.png" heigth="25%" width="25%"/></a></td>
-                        <td><a href="mostrarcodigo/muestraEjercicio02PDO.php"><image src="webroot/images/ojo.png" heigth="30%" width="30%"/></a></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO)</td>
-                        <td><a href="codigoPHP/ejercicio03PDO.php"><image src="webroot/images/play.png" heigth="25%" width="25%"/></a></td>
-                        <td><a href="mostrarcodigo/muestraEjercicio03PDO.php"><image src="webroot/images/ojo.png" heigth="30%" width="30%"/></a></td>
+                        <td></td>
+                        <td></td>
                     </tr>                    
                 </tbody>
             </table>           
@@ -50,7 +50,7 @@
         <footer>
             <p><a href="../index.html">Alex Asensio Sanchez</a></p>
             <p><a href="../204DWESProyectoDWES/indexProyectoDWES.php">DWES</a></p>
-            <p><a target="blank" href="https://github.com/AlexAnacardo/204DWESProyectoTema4">Repositorio del proyecto</a></p>
+            <p><a target="blank" href="https://github.com/AlexAnacardo/204DWESProyectoTema5">Repositorio del proyecto</a></p>
         </footer>
      </body>
  </html>
