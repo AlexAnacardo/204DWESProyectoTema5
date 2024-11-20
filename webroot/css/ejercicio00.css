@@ -69,13 +69,15 @@ footer{
 footer p{
     text-align: center;                
     width: fit-content;   
-    margin: 2% 1.5%;                          
+    margin: 2% 1.5%; 
+    background-color: #232F3E;
 }
 
 footer a{
     color: white;
     font-weight: bold;
     text-decoration: none; 
+    background-color: #232F3E;
 }
 
 footer p:hover{
