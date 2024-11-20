@@ -51,6 +51,10 @@ td:nth-of-type(odd){
     font-weight: bold;
 }
 
+p{
+    margin: 0 auto;
+}
+
 /*footer*/
 
 footer{
