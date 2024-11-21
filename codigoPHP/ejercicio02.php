@@ -33,21 +33,49 @@
     </header>
     <main>
         <?php
-        $miDB=new PDO(CONEXION, USUARIO, CONTRASEÑA);
-    
-        $sql= $miDB->prepare("select T01_Password from T01_Usuario where T01_CodUsuario= ? ");
-        $sql-> execute([$_SERVER['PHP_AUTH_USER']]);
-        $contraseña=$sql->fetchObject();
-            if(hash('sha256', $_SERVER['PHP_AUTH_USER'].$_SERVER['PHP_AUTH_PW'])==$contraseña->T01_Password){
-        ?>
-        <p>Bienvenido <?php echo($_SERVER['PHP_AUTH_USER']) ?></p>
-        <?php
-            }
+        try{
+            $miDB=new PDO(CONEXION, USUARIO, CONTRASEÑA);
+
+            $sql= $miDB->prepare("select T01_Password, T01_NumConexiones, T01_FechaHoraUltimaConexion from T01_Usuario where T01_CodUsuario= ? ");
+            $sql-> execute([$_SERVER['PHP_AUTH_USER']]);
+            $usuario=$sql->fetchObject();
+            if(hash('sha256', $_SERVER['PHP_AUTH_USER'].$_SERVER['PHP_AUTH_PW'])==$usuario->T01_Password){
+                $sql2= $miDB->prepare("update T01_Usuario set T01_NumConexiones=T01_NumConexiones+1, T01_FechaHoraUltimaConexion=now() where T01_CodUsuario= ? ");
+                $sql2-> execute([$_SERVER['PHP_AUTH_USER']]);  
+
+                if($usuario->T01_NumConexiones>0){                   
+                    ?>
+                    <p>Bienvenido <?php echo($_SERVER['PHP_AUTH_USER']) ?>, se ha conectado un total de <?php echo $usuario->T01_NumConexiones+1 ?> veces,
+                    la ultima conexion fue el dia: <?php echo date_format(new DateTime($usuario->T01_FechaHoraUltimaConexion), "d/m/Y H:i:s") ?></p>
+                    <?php
+                }
+                else{
+                    ?>
+                        <p>Bienvenido <?php echo($_SERVER['PHP_AUTH_USER']) ?>, es la primera vez que te conectas</p>
+                    <?php
+                }
+            }        
             else{
-        ?>
-        <p>Usuario o contraseña erroneos</p>
-        <?php
+            ?>
+            <p>Usuario o contraseña erroneos</p>
+            <?php
             }
+        }
+        catch(PDOException $ex){
+            ?>
+            <div>
+                <?php
+                echo('<p style="color: red">No se han podido insertar los registros</p><br>');
+                //Si se produce algun error, este se capturara aqui y se mostrara su codigo y mensaje
+                echo("<p><b>Mensaje de error:</b> ".$ex->getMessage()."</p><br>");
+                echo("<p><b>Codigo de error:</b> ".$ex->getCode()."</p>");
+                ?>
+            </div>
+            <?php
+        }
+        finally{
+            unset($miDB);
+        }
         ?>
     </main>  
     <footer>
