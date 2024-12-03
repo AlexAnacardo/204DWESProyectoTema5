@@ -35,11 +35,14 @@
         <?php
         try{
             $miDB=new PDO(CONEXION, USUARIO, CONTRASEÑA);
-
-            $sql= $miDB->prepare("select T01_Password, T01_NumConexiones, T01_FechaHoraUltimaConexion from T01_Usuario where T01_CodUsuario= ? ");
-            $sql-> execute([$_SERVER['PHP_AUTH_USER']]);
+                    
+            $contraseñaCodificada= hash('sha256', $_SERVER['PHP_AUTH_USER'].$_SERVER['PHP_AUTH_PW']);
+            $sql= $miDB->prepare(<<<FIN
+                                    select * from T01_Usuario where T01_CodUsuario='{$_SERVER['PHP_AUTH_USER']}' and T01_Password= '{$contraseñaCodificada}'
+                                  FIN);
+            $sql-> execute();
             $usuario=$sql->fetchObject();
-            if(isset($usuario->T01_Password) && hash('sha256', $_SERVER['PHP_AUTH_USER'].$_SERVER['PHP_AUTH_PW'])==$usuario->T01_Password){
+            if(isset($usuario->T01_CodUsuario)){
                 $sql2= $miDB->prepare("update T01_Usuario set T01_NumConexiones=T01_NumConexiones+1, T01_FechaHoraUltimaConexion=now() where T01_CodUsuario= ? ");
                 $sql2-> execute([$_SERVER['PHP_AUTH_USER']]);  
 
