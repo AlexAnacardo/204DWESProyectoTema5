@@ -17,6 +17,13 @@
                 <p><a href="mostrarcodigo/muestraCrearDB.php">Script creacion base de datos</a></p>
                 <p><a href="mostrarcodigo/muestraCargarDB.php">Script carga base de datos</a></p>
                 <p><a href="mostrarcodigo/muestraBorrarDB.php">Script borrado base de datos</a></p>
+                <p><a href="mostrarcodigo/muestraBorrarDB.php">Archivo configuración</a></p>
+            </div>
+            <div id="scripts">
+                <p><a href="mostrarcodigo/muestraBorrarDB.php">Script creación base de datos (Explotacion)</a></p>
+                <p><a href="mostrarcodigo/muestraBorrarDB.php">Script carga base de datos (Explotacion)</a></p>
+                <p><a href="mostrarcodigo/muestraBorrarDB.php">Script borrado base de datos (Explotacion)</a></p>
+                <p><a href="mostrarcodigo/muestraBorrarDB.php">Archivo configuracion (Explotacion)</a></p>
                 
             </div>
             <table>
