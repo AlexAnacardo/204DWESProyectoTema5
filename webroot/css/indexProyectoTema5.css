@@ -26,6 +26,7 @@ h1{
     display: flex;
     flex-direction: row;
     margin: 0 auto;
+    justify-content: space-around;
 }
 
 #scripts a{
@@ -38,11 +39,10 @@ h1{
     background-color: #F7CA00;
 }
 
-#scripts p{
-    margin-left: 4%; 
-    width: 100%;
-    
-    
+#scripts p{     
+    width: 19%;     
+    display: flex;
+    justify-content: center;
 }
 
 body{                              
@@ -59,7 +59,7 @@ main{
     height: 110%;      
     align-items: center;    
     border-radius: 9%;
-    padding: 3%;
+    padding: 1%;
 }
 
 a{
